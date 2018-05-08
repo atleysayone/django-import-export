@@ -6,24 +6,25 @@ from django.utils import translation
 from faker.providers import currency
 from parler.utils.context import switch_language
 
-from django.db.models.loading import get_model
+from django.apps import apps
+# from django.db.models.loading import get_model
 from . import widgets
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.manager import Manager
 from django.db.models.fields import NOT_PROVIDED
 
-Price = get_model('pricing', 'Price')
+Price = apps.get_model('pricing', 'Price')
 """ :type:  core.pricing.models.Price"""
-Currency = get_model('pricing', 'Currency')
+Currency = apps.get_model('pricing', 'Currency')
 """ :type:  core.pricing.models.Currency"""
-TaxRatio = get_model('pricing', 'TaxRatio')
+TaxRatio = apps.get_model('pricing', 'TaxRatio')
 """ :type:  core.pricing.models.TaxRatio"""
-AttributeOptionGroupValue = get_model('catalog', 'AttributeOptionGroupValue')
+AttributeOptionGroupValue = apps.get_model('catalog', 'AttributeOptionGroupValue')
 """ :type:  core.catalog.models.AttributeOptionGroupValue"""
-AttributeOptionGroup = get_model('catalog', 'AttributeOptionGroup')
+AttributeOptionGroup = apps.get_model('catalog', 'AttributeOptionGroup')
 """ :type:  core.catalog.models.AttributeOptionGroup"""
-AttributeOption = get_model('catalog', 'AttributeOption')
+AttributeOption = apps.get_model('catalog', 'AttributeOption')
 """ :type:  core.catalog.models.AttributeOption"""
 
 class Field(object):
